@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XLinuxPodium.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to Linux X11 windowing system API's for application.
  *
  * @note        None.
  *
@@ -51,36 +51,30 @@
 
 
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef XLINUXPODIUM_H
+#define XLINUXPODIUM_H
 
-#include <cstdio>
+#include <cstdlib>
+#include <EGL/egl.h>
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
+#include "XPodium.h"
 
-namespace SDKXilinx
-{
-
-    class Timer
+    class XLinuxPodium : public XPodium
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+
+        int windowWidth;
+        int windowHeight;
+        Colormap colormap;
+        XVisualInfo *visual;
+        static XPodium* instance;
+        XLinuxPodium(void);
+        static Bool wait_for_map(Display *display, XEvent *event, char *windowPointer);
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        static XPodium* getHandler(void);
+        virtual void prepareWindow(int width, int height);
+        virtual void destroyWindow(void);
+        virtual WindowStatus checkWindow(void);
+        bool createX11Window(void); 
     };
-#endif /* TIMER_H */
-}
+#endif /* XLINUXPODIUM_H */

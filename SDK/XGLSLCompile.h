@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XGLSLCompile.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to GLSL compilation.
  *
  * @note        None.
  *
@@ -47,40 +47,19 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
 
+#ifndef XGLSLCOMPILE_H
+#define XGLSLCOMPILE_H
 
-#ifndef TIMER_H
-#define TIMER_H
+#include <GLES2/gl2.h>
 
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    class Shader
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+        static char *loadShader(const char *filename);
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        static void processShader(GLuint *shader, const char *filename, GLint shaderType);
     };
-#endif /* TIMER_H */
-}
+#endif /* XGLSLCOMPILE_H */

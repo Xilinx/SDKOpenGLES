@@ -32,55 +32,63 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XMathOperations.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to math operations.
  *
- * @note        None.
+ * @note	None.
  *
  * <pre>
  * MODIFICATION HISTORY:
  *
- * Ver   Who            Date            Changes
- * ----- ----           --------        -----------------------------------------------
- * 1.0   Alok G         10/06/17        Initial release.
+ * Ver   Who  		Date     	Changes
+ * ----- ---- 		-------- 	-----------------------------------------------
+ * 1.0   Alok G  	10/06/17 	Initial release.
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
 
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef XMATHOPERATIONS_H
+#define XMATHOPERATIONS_H
+#include "XCVector.h"
+#include <cmath>
+#include <cstdlib>
 
-#include <cstdio>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846f
+#endif 
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    inline float distanceBetweenPoints(const CVec2f& point1, const CVec2f& point2)
     {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+	    return sqrtf((point2.x - point1.x) * (point2.x - point1.x) + (point2.y - point1.y) * (point2.y - point1.y));
+    }
+
+  
+    inline float degreesToRadians(float degrees)
+    {
+        return M_PI * degrees / 180.0f;
+    }
+
+    inline float signum(float f)
+    {
+	    if (f > 0.0f) 
+	    {
+		    return  1.0f;
+	    }
+        
+	    if (f < 0.0f) 
+	    {
+		    return -1.0f;
+	    }
+
+	    return 0.0f;
+    }
+
+    inline float uniformRandomNumber()
+    {
+	    return rand() / float(RAND_MAX);
+    }
+#endif /* MATHOPERATIONS_H */

@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XCompressionTexture.cpp
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to texture compression ETC.
  *
  * @note        None.
  *
@@ -50,37 +50,49 @@
 /******************************* Source Files ********************************/
 
 
+#include "XCompressionTexture.h"
 
-#ifndef TIMER_H
-#define TIMER_H
 
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    unsigned short ETCHeaderforTexture::getWidth(void)
     {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+        return (widthMSB << 8) | widthLSB;
+    }
+
+    unsigned short ETCHeaderforTexture::getHeight(void)
+    {
+        return (heightMSB << 8) | heightLSB;
+    }
+
+    unsigned short ETCHeaderforTexture::getPaddedWidth(void)
+    {
+        return (paddedWidthMSB << 8) | paddedWidthLSB;
+    }
+
+    unsigned short ETCHeaderforTexture::getPaddedHeight(void)
+    {
+        return (paddedHeightMSB << 8) | paddedHeightLSB;
+    }
+
+    GLsizei ETCHeaderforTexture::getSize(GLenum internalFormat)
+    {
+        return (getPaddedWidth() * getPaddedHeight());
+    }
+
+
+    ETCHeaderforTexture::ETCHeaderforTexture()
+    {
+    
+    }
+
+    ETCHeaderforTexture::ETCHeaderforTexture(unsigned char *data)
+    {
+  
+        paddedWidthMSB = data[8];
+        paddedWidthLSB = data[9];
+        paddedHeightMSB = data[10];
+        paddedHeightLSB = data[11];
+        widthMSB = data[12];
+        widthLSB = data[13];
+        heightMSB = data[14];
+        heightLSB = data[15];
+    }

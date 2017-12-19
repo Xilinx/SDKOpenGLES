@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XTexture.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to texture compression techniques.
  *
  * @note        None.
  *
@@ -47,40 +47,30 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
 
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef XTEXTURE_H
+#define XTEXTURE_H
 
-#include <cstdio>
+#include "XCompressionTexture.h"
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
+#include <GLES2/gl2.h>
 
-namespace SDKXilinx
-{
-
-    class Timer
+    class XTexture
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+        static void XgetCompressedTextureFormats(GLint **textureFormats, int* numberOfTextureFormats);
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        static bool XisETCSupported(bool verbose = false);
+   	static void XcreateTexture(unsigned int width, unsigned int height, GLvoid **textureData);
+	static void XcreateTexture(unsigned int width, unsigned int height, unsigned int red, GLvoid **textureData);
+        static void XcreateTexture(unsigned int width, unsigned int height, short red, short **textureData);
+        static void XdeleteTextureData(GLvoid **textureData);
+        static void XloadData(const char *filename, unsigned char **textureData);
+        static void XloadPKMData(const char *filename, ETCHeaderforTexture* etcHeader, unsigned char **textureData);
+        static void XloadCompressedMipmaps(const char *filenameBase, const char *filenameSuffix, GLuint *textureID);
+        static void XreversePixelLine(float* destination, const float* source, int lineWidth);
     };
-#endif /* TIMER_H */
-}
+#endif /* TEXTURE_H */

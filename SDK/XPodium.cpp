@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XPodium.cpp
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to podium baseclass.
  *
  * @note        None.
  *
@@ -50,37 +50,20 @@
 /******************************* Source Files ********************************/
 
 
-
-#ifndef TIMER_H
-#define TIMER_H
+#include "XPodium.h"
 
 #include <cstdio>
+#include <cstdarg>
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    XPodium* XPodium::getHandler()
     {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+    #ifdef ENABLE_FBDEV
+       		 return XLinuxMali::getHandler();
+    #endif
+
+    #ifdef ENABLE_X11
+                 return XLinuxPodium::getHandler();
+    #endif
+    }
+
+

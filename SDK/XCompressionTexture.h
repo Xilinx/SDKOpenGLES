@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XCompressionTexture.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to texture compression ETC.
  *
  * @note        None.
  *
@@ -47,40 +47,33 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
+ 
 
 
+#ifndef XCOMPRESSIONTEXTURE_H
+#define XCOMPRESSIONTEXTURE_H
 
-#ifndef TIMER_H
-#define TIMER_H
+#include <GLES2/gl2.h>
 
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    class ETCHeaderforTexture
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+        unsigned char paddedWidthMSB;
+        unsigned char paddedWidthLSB;
+        unsigned char paddedHeightMSB;
+        unsigned char paddedHeightLSB;
+        unsigned char widthMSB;
+        unsigned char widthLSB;
+        unsigned char heightMSB;
+        unsigned char heightLSB;
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        ETCHeaderforTexture();
+        ETCHeaderforTexture(unsigned char *data);
+        unsigned short getWidth(void);
+    	unsigned short getHeight(void);
+	unsigned short getPaddedWidth(void);
+	unsigned short getPaddedHeight(void);
+	GLsizei getSize(GLenum internalFormat);
     };
-#endif /* TIMER_H */
-}
+#endif /* XCOMPRESSIONTEXTURE_H */

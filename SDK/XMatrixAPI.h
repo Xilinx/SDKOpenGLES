@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XMatrixAPI.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to Matrix calculations for application.
  *
  * @note        None.
  *
@@ -47,40 +47,45 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
+
+#ifndef MATRIX_H
+#define MATRIX_H
 
 
+#include "XCVector.h"
 
-#ifndef TIMER_H
-#define TIMER_H
-
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+class XMatrixAPI
     {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+    private: 
+        float elements[16];
+        static XMatrixAPI multiply(XMatrixAPI *left, XMatrixAPI *right);
+        static const float identityArray[];
+    public:       
+        float* getAsArray(void);
+   	XMatrixAPI(void);
+        float& operator[] (unsigned element);
+        XMatrixAPI operator* (XMatrixAPI right);
+        XMatrixAPI& operator=(const XMatrixAPI &another);
+        XMatrixAPI(const float* array);
+        static XMatrixAPI identityXMatrixAPI;
+        static CVec4f vertexTransform(CVec4f *vector, XMatrixAPI *XMatrixAPI);
+        static CVec3f vertexTransform(CVec3f *vector, XMatrixAPI *XMatrixAPI);
+        static void XMatrixAPITranspose(XMatrixAPI *XMatrixAPI);
+        static XMatrixAPI createRotationX(float angle);
+        static XMatrixAPI createRotationY(float angle);
+        static XMatrixAPI createRotationZ(float angle);
+        static XMatrixAPI createTranslation(float x, float y, float z);
+        static XMatrixAPI createScaling(float x, float y, float z);
+        void print(void);
+        static XMatrixAPI XMatrixAPIPerspective(float FOV, float ratio, float zNear, float zFar);
+	static XMatrixAPI XMatrixAPICameraLookAt(CVec3f eye, CVec3f center, CVec3f up); 
+        static XMatrixAPI XMatrixAPIOrthographic(float left, float right, float bottom, float top, float zNear, float zFar);
+        static XMatrixAPI XMatrixAPIInvert(XMatrixAPI *XMatrixAPI);
+        static float XMatrixAPIDeterminant(float *XMatrixAPI);
+        static float XMatrixAPIDeterminant(XMatrixAPI *XMatrixAPI);
+        static XMatrixAPI XMatrixAPIScale(XMatrixAPI *XMatrixAPI, float scale);
+   	
+     };
+
+#endif

@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XEGLIntf.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to EGL bindings.
  *
  * @note        None.
  *
@@ -47,40 +47,31 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
+#ifndef XEGLINTF_H
+#define XEGLINTF_H
 
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
 
-#ifndef TIMER_H
-#define TIMER_H
-
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    class CoreEGL
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+        static EGLConfig findConfig(bool strictMatch);
+        static EGLint configAttributes [];
+        static EGLint contextAttributes [];
+        static EGLint windowAttributes [];
+     
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        static void setEGLSamples(EGLint requiredEGLSamples);
+        enum OpenGLESVersion {OPENGLES1, OPENGLES2, OPENGLES3, OPENGLES31};
+        static EGLDisplay display;
+        static EGLContext context;
+        static EGLConfig config;
+        static EGLSurface surface;
+        static void initializeEGL(OpenGLESVersion requestedAPIVersion);
+        static void terminateEGL(void);
     };
-#endif /* TIMER_H */
-}
+
+#endif /* XEGLINTF_H */

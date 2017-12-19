@@ -28,13 +28,13 @@
  * in advertising or otherwise to promote the sale, use or other dealings in
  * this Software without prior written authorization from Xilinx.
  *
-*******************************************************************************/
+ *******************************************************************************/
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XPodium.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to podium baseclass.
  *
  * @note        None.
  *
@@ -46,41 +46,43 @@
  * 1.0   Alok G         10/06/17        Initial release.
  * </pre>
  *
-*******************************************************************************/
-/******************************* Source Files ********************************/
+ *******************************************************************************/
+/******************************* Header Files ********************************/
 
 
+#ifndef XPodium_H
+#define XPodium_H
 
-#ifndef TIMER_H
-#define TIMER_H
-
+#include "XEGLIntf.h"
+#include "XCVector.h"
 #include <cstdio>
+#include "Xfbdev_window.h"
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
+	class XPodium
+	{
+		public:
+			enum WindowStatus {
+				WINDOW_IDLE, 
+				WINDOW_EXIT, 
+				WINDOW_CLICK};
+			CVec2 mouseClick;
+			fbdev_window *Fwindow;
+			Window window;
+			Display* display;
+			virtual void prepareWindow(int width, int height) = 0;
+			virtual WindowStatus checkWindow(void) = 0;
+			virtual void destroyWindow(void) = 0;
+			static void log(const char* format, ...);
+			static XPodium* getHandler();
+	};
+
+#ifdef ENABLE_FBDEV
+#include "XLinuxTarget.h"
 #endif
 
-namespace SDKXilinx
-{
+#ifdef ENABLE_X11
+#include "XLinuxPodium.h"
+#endif
 
-    class Timer
-    {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+
+#endif /* XPodium_H */

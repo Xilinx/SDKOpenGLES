@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XLinuxMali.cpp
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to Linux XPodium class for application.
  *
  * @note        None.
  *
@@ -51,36 +51,46 @@
 
 
 
-#ifndef TIMER_H
-#define TIMER_H
+#include <cstdlib>
+#include <sys/fcntl.h>
+#include <sys/unistd.h>
 
-#include <cstdio>
+#include "XLinuxTarget.h"
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
+    XPodium* XLinuxMali::instance = NULL;
 
-namespace SDKXilinx
-{
-
-    class Timer
+    XLinuxMali::XLinuxMali(void)
     {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
-}
+
+    }
+
+    XPodium* XLinuxMali::getHandler(void)
+    {
+        if (instance == NULL)
+        {
+            instance = new XLinuxMali();
+        }
+        return instance;
+    }
+
+    void XLinuxMali::prepareWindow(int width, int height)
+    {
+        Fwindow = (fbdev_window *)calloc(1, sizeof(fbdev_window));
+        if(Fwindow == NULL)
+        {
+            printf("Out of memory at %s:%i\n", __FILE__, __LINE__);
+            exit(1);
+        }
+        Fwindow->width = width;
+        Fwindow->height = height;
+    }
+
+    void XLinuxMali::destroyWindow(void)
+    {
+        free(Fwindow);
+    }
+
+    XPodium::WindowStatus XLinuxMali::checkWindow(void)
+    {
+        return XPodium::WINDOW_IDLE;
+    }

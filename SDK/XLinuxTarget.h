@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file XLinuxTarget.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to Linux XPodium class for application.
  *
  * @note        None.
  *
@@ -47,40 +47,27 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
 
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef XLINUXTARGET_H
+#define XLINUXTARGET_H
 
-#include <cstdio>
+#include <cstdlib>
+#include "XPodium.h"
+#include "Xfbdev_window.h"
 
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
-#endif
-
-namespace SDKXilinx
-{
-
-    class Timer
+    class XLinuxMali : public XPodium
     {
     private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
+        static XPodium* instance;
+       XLinuxMali(void);
     public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
+        static XPodium* getHandler(void);
+        virtual void prepareWindow(int width, int height);
+        virtual void destroyWindow(void);
+        virtual WindowStatus checkWindow(void);
     };
-#endif /* TIMER_H */
-}
+#endif /* XLINUXTARGET_H */
+

@@ -32,9 +32,9 @@
 /******************************************************************************/
 /**
  *
- * @file Xtime.h
+ * @file Xfbdev_window.h
  *
- * This file implements timer related API for SDK
+ * This file implements all the functions related to podium baseclass.
  *
  * @note        None.
  *
@@ -47,40 +47,26 @@
  * </pre>
  *
 *******************************************************************************/
-/******************************* Source Files ********************************/
+/******************************* Header Files ********************************/
 
 
+#ifndef _FBDEV_WINDOW_H_
+#define _FBDEV_WINDOW_H_
 
-#ifndef TIMER_H
-#define TIMER_H
-
-#include <cstdio>
-
-#if defined(_WIN32)
-#else
-#include <sys/time.h>
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-namespace SDKXilinx
+typedef struct fbdev_window
 {
+	unsigned short width;
+	unsigned short height;
+} fbdev_window;
 
-    class Timer
-    {
-    private:
-        int frameCount;
-        float fps;
-        float lastTime;
-        timeval startTime;
-        timeval currentTime;
-        float lastIntervalTime;
-        float fpsTime;
-    public:
-        Timer();
-        void reset();
-        float getTime();
-        float getInterval();
-        float getFPS();
-        bool isTimePassed(float seconds = 1.0f);
-    };
-#endif /* TIMER_H */
+
+#ifdef __cplusplus
 }
+#endif
+ 
+
+#endif
