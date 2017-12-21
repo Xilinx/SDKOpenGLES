@@ -8,6 +8,8 @@ This sample contains simple cube rendering technique on GPU using OpenGL ES 2.0 
 Colors are Interpolated across the vertices and showcase rotation matrix application for creating animation 
 effects. This is available in both versions X11 and FBDEV.
 
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/CubeSample/CubesSample.png)
+
 
 Depth Buffer Sample GPU
 This sample is designed to use depth buffer and create an effect on GPU . It draws cube and vertical plane with overlapping depth.
