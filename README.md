@@ -12,8 +12,7 @@ effects. This is available in both versions X11 and FBDEV.
 
 
 Depth Buffer Sample GPU
-This sample is designed to use depth buffer and create an effect on GPU . It draws cube and vertical plane with overlapping depth.
-Animation is created using matrices which allows the objects to rotate.This is available in both versions X11 and FBDEV
+This sample is designed to use depth buffer and create an effect on GPU . It draws cube and vertical plane with overlapping depth.Animation is created using matrices which allows the objects to rotate.This is available in both versions X11 and FBDEV
 ![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/DepthSample/Depth.png)
 
 
@@ -22,7 +21,9 @@ This sample is designed to showcase the usage of EGL Image extension. It defines
 sharing 2D arrays of image data between client APIs, the EGLImage. Although the intended purpose is sharing 2D image data, the
 underlying interface makes no assumptions about the format or purpose of the resource being shared, leaving those decisions to
 the application and associated client APIs. This is available for FBDEV
+
 ![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageSample/EGL1.png)
+
 ![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageSample/EGL2.png)
 
 
