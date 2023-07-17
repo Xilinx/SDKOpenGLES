@@ -1,3 +1,10 @@
+#How to run
+First set the path of libs,include header file paths, Cross compiler path under export_symbol.shared
+Then run the ./export_symbol.sh , So that all enviornment variables are set
+After that do " make all" , All the applications should be compiled in there respective directories.
+There after you shoudl be able to launch the appllications from there respective diretcories eg: "cd CubeSample" & then run "./CubeSample"
+
+
 # SDKOpenGLES
 Open Source Software development Kit for Graphics which can run on GPU for Xilinx Zu+ Platform.
 
