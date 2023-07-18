@@ -22,8 +22,8 @@ void main()
         /* Particle motion equation. */
         newPos = a_v3Position + a_v3Velocity * t + 0.5 * u_v3gravity * t * t;
 
-        ageFactor = 1.0 - (age / lifetime);
-        ageFactor = clamp(ageFactor, 0.0, 1.0);
+        ageFactor =  1.0 - (age / lifetime);
+        ageFactor =  clamp(ageFactor, 0.0, 1.0);
 
         /* The older the particle the smaller its size. */
         gl_PointSize = ageFactor * 250.0;
