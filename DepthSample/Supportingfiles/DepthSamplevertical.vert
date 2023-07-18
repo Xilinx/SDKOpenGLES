@@ -9,7 +9,7 @@ varying float vfGlassLinearDepth;
 
 void main()
 {
-    vv4GlassColor = av4color;
-    gl_Position = mvp * av4position;
-    vfGlassLinearDepth = gl_Position.w / far;
+    vv4GlassColor =  av4color;
+    gl_Position =  mvp * av4position;
+    vfGlassLinearDepth =  gl_Position.w / far;
 }
