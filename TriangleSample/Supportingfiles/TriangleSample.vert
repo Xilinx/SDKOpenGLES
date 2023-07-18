@@ -6,6 +6,6 @@ varying vec4 v_v4FillColor;
 
 void main()
 {
-    v_v4FillColor = a_v4FillColor;
-    gl_Position = mvp * a_v4Position;
+    v_v4FillColor =  a_v4FillColor;
+    gl_Position =  mvp * a_v4Position;
 }
