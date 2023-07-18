@@ -45,8 +45,9 @@ depend: .depend
 
 clean:
 	rm -f $(objects)
-	-rm -rf TriangleSample
 	-rm -rf bin
+	-rm -rf TriangleSample
+	
 
 dist-clean: clean
 	rm -f *~ .depend
