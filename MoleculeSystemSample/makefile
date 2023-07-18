@@ -45,8 +45,9 @@ depend: .depend
 
 clean:
 	rm -f $(objects)
-	-rm -rf MoleculeSystemSample
 	-rm -rf bin
+	-rm -rf MoleculeSystemSample
+	
 
 dist-clean: clean
 	rm -f *~ .depend
