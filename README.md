@@ -9,7 +9,7 @@
 
 
 # SDKOpenGLES
-Open Source Software development Kit for Graphics which can run on GPU for Xilinx Zu+ Platform.
+Open Source Software development Kit for Graphics which can run on GPU for Kria and Zu+ Platforms of AMD-Xilinx.
 
 
 # Cube Sample
