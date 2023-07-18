@@ -46,8 +46,9 @@ depend: .depend
 
 clean:
 	rm -f $(objects)
-	-rm -rf MipMapSample
 	-rm -rf bin
+	-rm -rf MipMapSample
+	
 
 dist-clean: clean
 	rm -f *~ .depend
