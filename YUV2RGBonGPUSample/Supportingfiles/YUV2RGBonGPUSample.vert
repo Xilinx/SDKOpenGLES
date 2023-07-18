@@ -5,7 +5,7 @@ uniform mat4 mvp;
 varying vec2 textureOut;
 void main()
 {
-  textureOut = av3colour;
-  gl_Position = mvp * av4position;
+  textureOut =  av3colour;
+  gl_Position =  mvp * av4position;
 }
 
