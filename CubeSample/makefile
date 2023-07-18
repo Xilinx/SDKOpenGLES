@@ -43,8 +43,8 @@ depend: .depend
 
 clean:
 	rm -f $(objects)
-	-rm -rf CubeSample
 	-rm -rf bin
+	-rm -rf CubeSample
 
 dist-clean: clean
 	rm -f *~ .depend
