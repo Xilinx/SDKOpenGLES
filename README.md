@@ -5,7 +5,8 @@
 3. Keep this flag enabled CXXFLAGS=-DENABLE_FBDEV , If you are compiling for FBDEV & for x11 disable this flag.<br />
 4. source the modified export_symbol.sh<br />
 5. Do - 'make all'<br />
-6. Respective binaries should be compiled for each sample & then you can run them eg: 'cd CubeSample' then './CubeSample'<br />
+6. Respective binaries should be compiled for each sample & then you can run them.
+7. Eg: 'cd CubeSample' then './CubeSample'<br />
 
 
 # SDKOpenGLES
