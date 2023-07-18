@@ -18,6 +18,6 @@ yuv += offset;
 rgb.r = dot(yuv, R_cf);
 rgb.g = dot(yuv, G_cf);
 rgb.b = dot(yuv, B_cf);
-gl_FragColor = vec4(rgb, 1);
+gl_FragColor =  vec4(rgb, 1);
 }
 
