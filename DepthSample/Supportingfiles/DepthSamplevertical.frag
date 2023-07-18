@@ -16,10 +16,10 @@ highp float z_eye_far_to_linear(highp float z, float n, float f)
 
 void main()
 {
-    highp float fCubeZ = gl_LastFragDepthARM * 2.0 - 1.0;
-    float fCubeLinearDepth = z_eye_far_to_linear(fCubeZ, near, far);
+    highp float fCubeZ =  gl_LastFragDepthARM * 2.0 - 1.0;
+    float fCubeLinearDepth =  z_eye_far_to_linear(fCubeZ, near, far);
 
-    float fator = clamp(vv4GlassColor.a + (fCubeLinearDepth - vfGlassLinearDepth) * glassMaterial, 0.0, 1.0);
-    gl_FragColor = vec4(vv4GlassColor.rgb, fator);
+    float fator =  clamp(vv4GlassColor.a + (fCubeLinearDepth - vfGlassLinearDepth) * glassMaterial, 0.0, 1.0);
+    gl_FragColor =  vec4(vv4GlassColor.rgb, fator);
 }
 
