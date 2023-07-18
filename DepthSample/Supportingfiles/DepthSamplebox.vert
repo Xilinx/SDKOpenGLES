@@ -8,5 +8,5 @@ varying vec3 vv3color;
 void main()
 {
     vv3color = av3color;
-    gl_Position = mvp * av4position;
+    gl_Position =  mvp * av4position;
 }
