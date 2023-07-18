@@ -12,7 +12,7 @@ varying vec2 v_v2TexCoord;
 
 void main()
 {
-v_v4FillColor = a_v4FillColor;
-    v_v2TexCoord = a_v2TexCoord;
-gl_Position = u_m4Projection * u_m4Modelview * a_v4Position;
+v_v4FillColor =  a_v4FillColor;
+    v_v2TexCoord =  a_v2TexCoord;
+gl_Position =  u_m4Projection * u_m4Modelview * a_v4Position;
 }
