@@ -7,5 +7,5 @@ varying vec2 v_v2TexCoord;
 
 void main()
 {
-    gl_FragColor = texture2D(u_s2dTexture, v_v2TexCoord);
+    gl_FragColor =  texture2D(u_s2dTexture, v_v2TexCoord);
 }
