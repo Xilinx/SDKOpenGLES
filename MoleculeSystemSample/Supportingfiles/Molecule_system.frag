@@ -23,7 +23,7 @@ void main()
     }
 
     vec4 baseColour = vec4(v_v3colour.x, v_v3colour.y, v_v3colour.z, 1.0);
-    texColour = texture2D(s_texture, texCoords);
+    texColour =  texture2D(s_texture, texCoords);
 
     /* Modulate alpha component. */
     texColour.a =  texColour.r * alphaFactor;
