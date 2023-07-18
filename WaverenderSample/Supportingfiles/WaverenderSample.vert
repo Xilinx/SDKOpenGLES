@@ -4,5 +4,5 @@ uniform mat4 mvp;
 
 void main()
 {
-    gl_Position = mvp * a_v4Position;
+    gl_Position =  mvp * a_v4Position;
 }
