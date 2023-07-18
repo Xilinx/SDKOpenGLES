@@ -9,6 +9,6 @@ varying vec2 v_v2TexCoord;
 
 void main()
 {
-    vec4 v4Texel = texture2D(u_s2dTexture, v_v2TexCoord);
-    gl_FragColor = mix(v_v4FillColor, v4Texel, u_fTex);
+    vec4 v4Texel =  texture2D(u_s2dTexture, v_v2TexCoord);
+    gl_FragColor =  mix(v_v4FillColor, v4Texel, u_fTex);
 }
