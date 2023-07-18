@@ -34,8 +34,9 @@ depend: .depend
 
 clean:
 	rm -f $(objects)
-	-rm -rf EGLImageSample
 	-rm -rf bin
+	-rm -rf EGLImageSample
+	
 
 dist-clean: clean
 	rm -f *~ .depend
