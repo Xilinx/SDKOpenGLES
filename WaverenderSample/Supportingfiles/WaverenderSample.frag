@@ -13,7 +13,7 @@ float plot(vec2 st, float pct){
 float ecg(float x)
 {
 
-    x = x - ceil(x/2.8 - 0.5)*2.8;
+    x =  x - ceil(x/2.8 - 0.5)*2.8;
 
    return 0.2*(exp((-pow(x + 1.4, 2.)) / (2.*0.02)) + exp((-pow(x - 1.4,2.)) / (2.*0.02))) + (1. - abs(x / 0.1) - x)*exp((-pow(7.*x,2.)) / 2.);
 }
