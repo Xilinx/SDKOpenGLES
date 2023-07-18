@@ -24,7 +24,6 @@ install:
 
 clean:
 	(cd YUV2RGBonGPUSample; make clean)
-	(cd WaverenderSample; make clean)
 	(cd FBOSample; make clean)
 	(cd TriangleSample; make clean)
 	(cd DepthSample; make clean)
@@ -33,3 +32,4 @@ clean:
 	(cd CubeSample; make clean)
 	(cd EGLImageSample; make clean)
 	(cd EGLImageVideoSample; make clean)
+	(cd WaverenderSample; make clean)
