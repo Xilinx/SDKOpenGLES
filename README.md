@@ -1,11 +1,11 @@
 # Compilation Steps
 
-Clone the repository<br />
-Edit the export_symbol.sh & change appropriate path for cross compiler & libs.<br />
-Keep this flag enabled CXXFLAGS=-DENABLE_FBDEV , If you are compiling for FBDEV & for x11 disable this flag.<br />
-source the modified export_symbol.sh<br />
-Do - 'make all'<br />
-Respective binaries should be compiled for each sample & then you can run them eg: 'cd CubeSample' then './CubeSample'<br />
+1. Clone the repository<br />
+2. Edit the export_symbol.sh & change appropriate path for cross compiler & libs.<br />
+3. Keep this flag enabled CXXFLAGS=-DENABLE_FBDEV , If you are compiling for FBDEV & for x11 disable this flag.<br />
+4. source the modified export_symbol.sh<br />
+5. Do - 'make all'<br />
+6. Respective binaries should be compiled for each sample & then you can run them eg: 'cd CubeSample' then './CubeSample'<br />
 
 
 # SDKOpenGLES
