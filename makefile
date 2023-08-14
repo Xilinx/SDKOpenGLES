@@ -1,6 +1,6 @@
 all:
 	(cd YUV2RGBSample; make all)
-	(cd WaverenderSample; make all)
+	(cd WaveformSample; make all)
 	(cd FBOSample; make all)
 	(cd TriangleSample; make all)
 	(cd DepthSample; make all)
@@ -12,7 +12,7 @@ all:
 
 install:
 	(cd YUV2RGBSample; make install)
-	(cd WaverenderSample; make install)
+	(cd WaveformSample; make install)
 	(cd FBOSample; make install)
 	(cd TriangleSample; make install)
 	(cd DepthSample; make install)
@@ -32,4 +32,4 @@ clean:
 	(cd CubeSample; make clean)
 	(cd EGLImageSample; make clean)
 	(cd EGLImageVideoSample; make clean)
-	(cd WaverenderSample; make clean)
+	(cd WaveformSample; make clean)
