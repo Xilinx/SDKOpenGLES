@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: YUV2RGBonGPUSample $(srfiles)
+all: YUV2RGBSample $(srfiles)
 
-YUV2RGBonGPUSample $(objects) : YUV2RGBonGPUSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) YUV2RGBonGPUSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o YUV2RGBonGPUSample $(INC) $(PROJ_INCLUDES) $(LIB)
+YUV2RGBSample $(objects) : YUV2RGBonGPUSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) YUV2RGBonGPUSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o YUV2RGBSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf YUV2RGBonGPUSample bin
+		cp -rf YUV2RGBSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -30,10 +30,10 @@ else
 endif
 
 
-install: YUV2RGBonGPUSample	
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/YUV2RGBonGPUSample
-	cp -rf YUV2RGBonGPUSample  $(TOP_DIR)/../bin/$(bin)/YUV2RGBonGPUSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/YUV2RGBonGPUSample
+install: YUV2RGBSample	
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/YUV2RGBSample
+	cp -rf YUV2RGBSample  $(TOP_DIR)/../bin/$(bin)/YUV2RGBSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/YUV2RGBSample
 
 
 depend: .depend
@@ -45,7 +45,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf YUV2RGBonGPUSample
+	-rm -rf YUV2RGBSample
 	
 
 dist-clean: clean
