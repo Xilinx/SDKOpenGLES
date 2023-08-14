@@ -3,7 +3,7 @@
 1. Clone the repository<br />
 2. Edit the export_symbol.sh & change appropriate path for cross compiler & libs.<br />
 3. Keep this flag enabled CXXFLAGS=-DENABLE_FBDEV , If you are compiling for FBDEV & for x11 disable this flag.<br />
-4. source the modified export_symbol.sh<br />
+4. source the modified run_exports.sh<br />
 5. Do - 'make all'<br />
 6. Respective binaries should be compiled for each sample & then you can run them.
 7. Eg: 'cd CubeSample' then './CubeSample'<br />
