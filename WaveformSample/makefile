@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: WaverenderSample $(srfiles)
+all: WaveformSample $(srfiles)
 
-WaverenderSample $(objects) : WaverenderSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) WaverenderSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o WaverenderSample $(INC) $(PROJ_INCLUDES) $(LIB)
+WaveformSample $(objects) : WaverenderSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) WaverenderSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o WaveformSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf WaverenderSample bin
+		cp -rf WaveformSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -31,10 +31,10 @@ else
 endif
 
 
-install: WaverenderSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/WaverenderSample
-	cp -rf WaverenderSample  $(TOP_DIR)/../bin/$(bin)/WaverenderSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/WaverenderSample
+install: WaveformSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/WaveformSample
+	cp -rf WaveformSample  $(TOP_DIR)/../bin/$(bin)/WaveformSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/WaveformSample
 
 
 
@@ -47,7 +47,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf WaverenderSample
+	-rm -rf WaveformSample
 	
 
 dist-clean: clean
