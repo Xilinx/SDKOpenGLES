@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: DepthSample $(srfiles)
+all: Alpha_DepthSample $(srfiles)
 
-DepthSample $(objects) : DepthSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) DepthSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o DepthSample $(INC) $(PROJ_INCLUDES) $(LIB)
+Alpha_DepthSample $(objects) : DepthSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) DepthSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o Alpha_DepthSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf DepthSample bin
+		cp -rf Alpha_DepthSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -31,10 +31,10 @@ else
 endif
 
 
-install: DepthSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/DepthSample
-	cp -rf DepthSample  $(TOP_DIR)/../bin/$(bin)/DepthSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/DepthSample
+install: Alpha_DepthSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/Alpha_DepthSample
+	cp -rf Alpha_DepthSample  $(TOP_DIR)/../bin/$(bin)/Alpha_DepthSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/Alpha_DepthSample
 
 
 depend: .depend
@@ -46,7 +46,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf DepthSample
+	-rm -rf Alpha_DepthSample
 	
 
 dist-clean: clean
