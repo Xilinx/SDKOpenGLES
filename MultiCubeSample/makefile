@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: CubeSample $(srfiles)
+all: MultiCubeSample $(srfiles)
 
-CubeSample $(objects) : CubeSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) CubeSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o CubeSample $(INC) $(PROJ_INCLUDES) $(LIB)
+MultiCubeSample $(objects) : CubeSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) CubeSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o MultiCubeSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf CubeSample bin
+		cp -rf MultiCubeSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -29,10 +29,10 @@ else
 	bin=$(bin_X11)
 endif
 
-install: CubeSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/CubeSample
-	cp -rf CubeSample  $(TOP_DIR)/../bin/$(bin)/CubeSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/CubeSample
+install: MultiCubeSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/MultiCubeSample
+	cp -rf MultiCubeSample  $(TOP_DIR)/../bin/$(bin)/MultiCubeSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/MultiCubeSample
 
 
 depend: .depend
@@ -44,7 +44,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf CubeSample
+	-rm -rf MultiCubeSample
 
 dist-clean: clean
 	rm -f *~ .depend
