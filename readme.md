@@ -35,9 +35,9 @@ sharing 2D arrays of image data between client APIs, the EGLImage. Although the 
 underlying interface makes no assumptions about the format or purpose of the resource being shared, leaving those decisions to
 the application and associated client APIs. This is available for FBDEV
 
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageSample/EGL1.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLRenderingSample/EGL1.png)
 
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageSample/EGL2.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLRenderingSample/EGL2.png)
 
 
 # EGL Image Live Video streaming texture update - GPU
