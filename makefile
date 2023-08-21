@@ -7,7 +7,7 @@ all:
 	(cd MipMapSample; make all)
 	(cd MoleculeSystemSample; make all)
 	(cd MultiCubeSample; make all)
-	(cd EGLImageSample; make all)
+	(cd EGLRenderingSample; make all)
 	(cd EGLImageVideoSample; make all)
 
 install:
@@ -19,7 +19,7 @@ install:
 	(cd MipMapSample; make install)
 	(cd MoleculeSystemSample; make install)
 	(cd MultiCubeSample; make install)
-	(cd EGLImageSample; make install)
+	(cd EGLRenderingSample; make install)
 	(cd EGLImageVideoSample; make install)
 
 clean:
@@ -30,6 +30,6 @@ clean:
 	(cd MipMapSample; make clean)
 	(cd MoleculeSystemSample; make clean)
 	(cd MultiCubeSample; make clean)
-	(cd EGLImageSample; make clean)
+	(cd EGLRenderingSample; make clean)
 	(cd EGLImageVideoSample; make clean)
 	(cd WaveformSample; make clean)
