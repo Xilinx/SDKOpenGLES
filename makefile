@@ -8,7 +8,7 @@ all:
 	(cd MoleculeSystemSample; make all)
 	(cd MultiCubeSample; make all)
 	(cd EGLRenderingSample; make all)
-	(cd EGLImageVideoSample; make all)
+	(cd EGLTextureVideoSample; make all)
 
 install:
 	(cd YUV2RGBSample; make install)
@@ -20,7 +20,7 @@ install:
 	(cd MoleculeSystemSample; make install)
 	(cd MultiCubeSample; make install)
 	(cd EGLRenderingSample; make install)
-	(cd EGLImageVideoSample; make install)
+	(cd EGLTextureVideoSample; make install)
 
 clean:
 	(cd YUV2RGBSample; make clean)
@@ -31,5 +31,5 @@ clean:
 	(cd MoleculeSystemSample; make clean)
 	(cd MultiCubeSample; make clean)
 	(cd EGLRenderingSample; make clean)
-	(cd EGLImageVideoSample; make clean)
+	(cd EGLTextureVideoSample; make clean)
 	(cd WaveformSample; make clean)
