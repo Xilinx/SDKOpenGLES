@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: FBOSample $(srfiles)
+all: FrameBufferObject-FBOSample $(srfiles)
 
-FBOSample $(objects) : FBOSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) FBOSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o FBOSample $(INC) $(PROJ_INCLUDES) $(LIB)
+FrameBufferObject-FBOSample $(objects) : FBOSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) FBOSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o FrameBufferObject-FBOSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf FBOSample bin
+		cp -rf FrameBufferObject-FBOSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -31,10 +31,10 @@ else
 endif
 
 
-install: FBOSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/FBOSample
-	cp -rf FBOSample  $(TOP_DIR)/../bin/$(bin)/FBOSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/FBOSample
+install: FrameBufferObject-FBOSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/FrameBufferObject-FBOSample
+	cp -rf FrameBufferObject-FBOSample  $(TOP_DIR)/../bin/$(bin)/FrameBufferObject-FBOSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/FrameBufferObject-FBOSample
 
 
 depend: .depend
@@ -46,7 +46,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf FBOSample
+	-rm -rf FrameBufferObject-FBOSample
 	
 
 dist-clean: clean
