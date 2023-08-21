@@ -1,7 +1,7 @@
 all:
 	(cd YUV2RGBSample; make all)
 	(cd WaveformSample; make all)
-	(cd FBOSample; make all)
+	(cd FrameBufferObject-FBOSample; make all)
 	(cd TriangleSample; make all)
 	(cd Alpha_DepthSample; make all)
 	(cd MipMapSample; make all)
@@ -13,7 +13,7 @@ all:
 install:
 	(cd YUV2RGBSample; make install)
 	(cd WaveformSample; make install)
-	(cd FBOSample; make install)
+	(cd FrameBufferObject-FBOSample; make install)
 	(cd TriangleSample; make install)
 	(cd Alpha_DepthSample; make install)
 	(cd MipMapSample; make install)
@@ -24,7 +24,7 @@ install:
 
 clean:
 	(cd YUV2RGBSample; make clean)
-	(cd FBOSample; make clean)
+	(cd FrameBufferObject-FBOSample; make clean)
 	(cd TriangleSample; make clean)
 	(cd Alpha_DepthSample; make clean)
 	(cd MipMapSample; make clean)
