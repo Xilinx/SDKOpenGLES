@@ -43,9 +43,9 @@ the application and associated client APIs. This is available for FBDEV
 # EGL Image Live Video streaming texture update - GPU
 This sample is designed to showcase the usage of EGL Image extension in real time which will take live feed from camera mounted on ZCU+ board and streaming the data on /dev/video0 node. The application reads that streaming and use it as a texture in OpenGL ES application  and render and update the texture frame-per-frame using EGL Image instead of classic glteximage2D approach and is quite fast compared to classic approach. This is available for FBDEV.
 
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageVideoSample/EGLVideo1.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLTextureVideoSample/EGLVideo1.png)
 
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLImageVideoSample/Videotexture.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLTextureVideoSample/Videotexture.png)
 
 
 # Frame Buffer Object (Render to Texture) Sample GPU
