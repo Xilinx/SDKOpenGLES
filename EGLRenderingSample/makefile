@@ -9,11 +9,11 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.c")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: EGLRenderingSample $(srfiles)
+all: EGLImageSample $(srfiles)
 
-EGLRenderingSample $(objects) : EGLImageSample.c $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH_C) EGLImageSample.c $(CXXFLAGS) $(LD_FLAGS) -o EGLRenderingSample $(INC) $(PROJ_INCLUDES) $(LIB)
-		cp -rf EGLRenderingSample bin
+EGLImageSample $(objects) : EGLImageSample.c $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH_C) EGLImageSample.c $(CXXFLAGS) $(LD_FLAGS) -o EGLImageSample $(INC) $(PROJ_INCLUDES) $(LIB)
+		cp -rf EGLImageSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -21,9 +21,9 @@ DEPS := $(objects:.o=.d)
 
 bin=bin_FBDEV
 
-install: EGLRenderingSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/EGLRenderingSample
-	cp -rf EGLRenderingSample  $(TOP_DIR)/../bin/$(bin)/EGLRenderingSample
+install: EGLImageSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/EGLImageSample
+	cp -rf EGLImageSample  $(TOP_DIR)/../bin/$(bin)/EGLImageSample
 
 
 depend: .depend
@@ -35,7 +35,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf EGLRenderingSample
+	-rm -rf EGLImageSample
 	
 
 dist-clean: clean
