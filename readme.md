@@ -51,7 +51,7 @@ This sample is designed to showcase the usage of EGL Image extension in real tim
 # Frame Buffer Object (Render to Texture) Sample GPU
 This sample contains Render to texture rendering technique sample on GPU using OpenGL ES 2.0 API’s.
 FBO is used to create the color cube which is rendered to a texture and is being used in subsequent rendering pass as input texture to be applied across all six faces of bigger cube .Rotating matrix are used here to create animation effects on both cubes separately.This is available in both versions X11 and FBDEV
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/FBOSample/FBO.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/FrameBufferObject-FBOSample/FBO.png)
 
 
 # MIPMAP Levels & Compressed Texture Sample
