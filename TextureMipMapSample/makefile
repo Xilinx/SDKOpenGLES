@@ -4,9 +4,9 @@ export OUTPUT_DIR =$(TOP_DIR)/../bin
 LD_FLAGS= -lm -lpthread -ldl -lX11 -lxcb -lXau -lXdmcp -ldrm -lXfixes -lXext -lXdamage -lexpat -lglapi -lX11-xcb -lxcb-glx -lxcb-dri2 -lEGL -lGLESv2
 LIB=-L$(MALI_LIBS)
 INC=-I$(MALI_INCLUDE)
-PROJ_INCLUDES=-I../SDK
+PROJ_INCLUDES=-I../Coreframework
 
-srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
+srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
 all: TextureMipMapSample $(srfiles)
