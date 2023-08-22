@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: MipMapSample $(srfiles)
+all: TextureMipMapSample $(srfiles)
 
-MipMapSample $(objects) : MipMapSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) MipMapSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o MipMapSample $(INC) $(PROJ_INCLUDES) $(LIB)
+TextureMipMapSample $(objects) : MipMapSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) MipMapSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o TextureMipMapSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf MipMapSample bin
+		cp -rf TextureMipMapSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -31,10 +31,10 @@ else
 endif
 
 
-install: MipMapSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/MipMapSample
-	cp -rf MipMapSample  $(TOP_DIR)/../bin/$(bin)/MipMapSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/MipMapSample
+install: TextureMipMapSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/TextureMipMapSample
+	cp -rf TextureMipMapSample  $(TOP_DIR)/../bin/$(bin)/TextureMipMapSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/TextureMipMapSample
 
 
 
@@ -47,7 +47,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf MipMapSample
+	-rm -rf TextureMipMapSample
 	
 
 dist-clean: clean
