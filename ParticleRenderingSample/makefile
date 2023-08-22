@@ -9,12 +9,12 @@ PROJ_INCLUDES=-I../SDK
 srcfiles := $(shell find ../SDK -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: MoleculeSystemSample $(srfiles)
+all: ParticleRenderingSample $(srfiles)
 
-MoleculeSystemSample $(objects) : MoleculeSystemSample.cpp $(srcfiles)
-	$(ARM_CROSS_COMPILER_PATH) MoleculeSystemSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o MoleculeSystemSample $(INC) $(PROJ_INCLUDES) $(LIB)
+ParticleRenderingSample $(objects) : MoleculeSystemSample.cpp $(srcfiles)
+	$(ARM_CROSS_COMPILER_PATH) MoleculeSystemSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o ParticleRenderingSample $(INC) $(PROJ_INCLUDES) $(LIB)
 		cp -rf Supportingfiles bin
-		cp -rf MoleculeSystemSample bin
+		cp -rf ParticleRenderingSample bin
 
 # The dependency file names.
 DEPS := $(objects:.o=.d)
@@ -31,10 +31,10 @@ else
 endif
 
 
-install: MoleculeSystemSample
-	mkdir -p $(TOP_DIR)/../bin/$(bin)/MoleculeSystemSample
-	cp -rf MoleculeSystemSample  $(TOP_DIR)/../bin/$(bin)/MoleculeSystemSample
-	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/MoleculeSystemSample
+install: ParticleRenderingSample
+	mkdir -p $(TOP_DIR)/../bin/$(bin)/ParticleRenderingSample
+	cp -rf ParticleRenderingSample  $(TOP_DIR)/../bin/$(bin)/ParticleRenderingSample
+	cp -rf Supportingfiles  $(TOP_DIR)/../bin/$(bin)/ParticleRenderingSample
 
 
 depend: .depend
@@ -46,7 +46,7 @@ depend: .depend
 clean:
 	rm -f $(objects)
 	-rm -rf bin
-	-rm -rf MoleculeSystemSample
+	-rm -rf ParticleRenderingSample
 	
 
 dist-clean: clean
