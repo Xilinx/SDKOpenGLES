@@ -57,7 +57,7 @@ FBO is used to create the color cube which is rendered to a texture and is being
 # MIPMAP Levels & Compressed Texture Sample
 This sample is designed to show the capability of GPU to decompress the compressed texture on the fly with multiple levels of MIPMAPS being used for textures. The rendering shows Texture MipMaps at multiple levels which were stored as ETC compressed.
 This is available in both versions X11 and FBDEV.
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/MipMapSample/MIPMAP.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/TextureMipMapSample/MIPMAP.png)
 
 
 # Multi Particle rendering Sample GPU
