@@ -64,7 +64,7 @@ This is available in both versions X11 and FBDEV.
 This sample is designed to create particle system effect 
 on GPU . It draws multiple particles on screen which are created using a small texture , each particle has a 
 lifetime and color which can be controlled by the application. Animation is created using matrices which allows the particles to diverge in multiple locations and sustain based on there lifetime token.This is available in both versions X11 and FBDEV
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/MoleculeSystemSample/Particles.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/ParticleRenderingSample/Particles.png)
 
 
 Simple Triangle rendering Sample GPU
