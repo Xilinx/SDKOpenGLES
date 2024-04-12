@@ -45,7 +45,7 @@ This sample is designed to showcase the usage of EGL Image extension in real tim
 
 ![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLTextureVideoSample/EGLVideo1.png)
 
-![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLTextureVideoSample/Videotexture.png)
+![alt text](https://github.com/Xilinx/SDKOpenGLES/blob/master/EGLTextureVideoSample/EGLVideo2.png)
 
 
 # Frame Buffer Object (Render to Texture) Sample GPU
