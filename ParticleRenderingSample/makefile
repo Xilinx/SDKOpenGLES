@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: ParticleRenderingSample $(srfiles)
+all: ParticleRenderingSample $(srcfiles)
 
 ParticleRenderingSample $(objects) : MoleculeSystemSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) MoleculeSystemSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o ParticleRenderingSample $(INC) $(PROJ_INCLUDES) $(LIB)

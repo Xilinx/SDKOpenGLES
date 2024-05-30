@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: TriangleSample $(srfiles)
+all: TriangleSample $(srcfiles)
 
 TriangleSample $(objects) : TriangleSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) TriangleSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o TriangleSample $(INC) $(PROJ_INCLUDES) $(LIB)

@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: WaveformSample $(srfiles)
+all: WaveformSample $(srcfiles)
 
 WaveformSample $(objects) : WaverenderSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) WaverenderSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o WaveformSample $(INC) $(PROJ_INCLUDES) $(LIB)
