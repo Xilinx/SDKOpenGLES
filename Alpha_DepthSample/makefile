@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: Alpha_DepthSample $(srfiles)
+all: Alpha_DepthSample $(srcfiles)
 
 Alpha_DepthSample $(objects) : DepthSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) DepthSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o Alpha_DepthSample $(INC) $(PROJ_INCLUDES) $(LIB)

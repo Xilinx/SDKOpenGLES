@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: MultiCubeSample $(srfiles)
+all: MultiCubeSample $(srcfiles)
 
 MultiCubeSample $(objects) : CubeSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) CubeSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o MultiCubeSample $(INC) $(PROJ_INCLUDES) $(LIB)

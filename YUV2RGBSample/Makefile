@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: YUV2RGBSample $(srfiles)
+all: YUV2RGBSample $(srcfiles)
 
 YUV2RGBSample $(objects) : YUV2RGBonGPUSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) YUV2RGBonGPUSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o YUV2RGBSample $(INC) $(PROJ_INCLUDES) $(LIB)

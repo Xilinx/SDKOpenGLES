@@ -1,12 +1,33 @@
-# Compilation Steps 
+# How to set-up, compile and run 
 
-1. Clone the repository<br />
-2. Edit the export_symbol.sh & change appropriate path for cross compiler & libs.<br />
+1. Clone the repository
+```bash
+git clone https://github.com/Xilinx/SDKOpenGLES/tree/master
+```
+<br />
+
+2. Edit the run_export.sh and change appropriate path for cross-compiler & libs.<br />
 3. Keep this flag enabled CXXFLAGS=-DENABLE_FBDEV , If you are compiling for FBDEV & for x11 disable this flag.<br />
-4. source the modified export_symbol.sh<br />
-5. Do - 'make all'<br />
-6. Respective binaries should be compiled for each sample & then you can run them.
-7. Eg: 'cd CubeSample' then './CubeSample'<br />
+4. Source the modified file run_export.sh
+
+```bash
+source ./run_export.sh
+```
+<br />
+
+5. Build examples
+
+```bash
+make all
+```
+<br />
+
+6. Run. Respective binaries should be compiled for each sample & then you can run them. E.g: 
+
+```bash
+cd MultiCubeSample && ./MultiCubeSample
+```
+<br />
 
 
 # SDKOpenGLES

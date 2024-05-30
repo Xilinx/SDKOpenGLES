@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.c")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: EGLImageSample $(srfiles)
+all: EGLImageSample $(srcfiles)
 
 EGLImageSample $(objects) : EGLImageSample.c $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH_C) EGLImageSample.c $(CXXFLAGS) $(LD_FLAGS) -o EGLImageSample $(INC) $(PROJ_INCLUDES) $(LIB)

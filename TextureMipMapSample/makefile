@@ -9,7 +9,7 @@ PROJ_INCLUDES=-I../Coreframework
 srcfiles := $(shell find ../Coreframework -maxdepth 1 -name "*.cpp")
 objects  := $(patsubst %.cpp, %.o, $(srcfiles))
 
-all: TextureMipMapSample $(srfiles)
+all: TextureMipMapSample $(srcfiles)
 
 TextureMipMapSample $(objects) : MipMapSample.cpp $(srcfiles)
 	$(ARM_CROSS_COMPILER_PATH) MipMapSample.cpp $(srcfiles) $(CXXFLAGS) $(LD_FLAGS) -o TextureMipMapSample $(INC) $(PROJ_INCLUDES) $(LIB)
