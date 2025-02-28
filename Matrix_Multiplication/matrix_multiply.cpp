@@ -1,7 +1,7 @@
 /*******************************************************************************
  * AMD-Xilinx 2024
  * -----------------------------------------------------------------------------
- * File         : matrix.cpp
+ * File         : matrix_multiply.cpp
  * Description  : Demonstrates GPU-based matrix multiplication using a vertex
  *                shader with OpenGL ES 2.0
  *                Each output element is computed in the vertex shader and
